@@ -130,4 +130,4 @@ MENU UTAMA
 
 ## 👤 Author
 
-Capstone Project Module 2 — Study Case: Data Nilai Siswa.
+Rakha Arrazan
