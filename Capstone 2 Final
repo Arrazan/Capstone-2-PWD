@@ -197,8 +197,8 @@ def list_murid():
 def editMurid():
     nis_dicari = input('Masukkan NIS Murid yang diinginkan: ')
 
-    for murid in data_murid:                       # cukup keliling dict-nya langsung,
-        if murid['NIS'] == nis_dicari:             # tidak perlu range(len(...)) + index
+    for murid in data_murid:                       
+        if murid['NIS'] == nis_dicari:             
             print('Data Ditemukan!\nNama murid:', murid['Nama'])
 
             while True:
@@ -280,7 +280,6 @@ def cariNIS():
 
 def cariNama():
     nama_dicari = input('Masukkan Nama Murid: ')
-    # Kumpulkan yang cocok memakai list comprehension singkat.
     hasil = [m for m in data_murid if m['Nama'].lower() == nama_dicari.lower()]
 
     if hasil:
@@ -301,16 +300,8 @@ def cariKelas():
 
 # RATA-RATA, GRADE, LULUS/TIDAK ===========================
 def rataRata(nilai_dict):
-    """
-    Rata-rata dari semua nilai mapel.
 
-    KENAPA sum(nilai_dict.values()) / len(nilai_dict)?
-    Versi lama menjumlahkan 6 key satu per satu ('MTK'+'IPA'+...). Kalau suatu
-    saat mapel bertambah/berkurang, rumus lama harus diedit manual dan rawan
-    lupa. Versi ini otomatis mengikuti isi dictionary. (Materi: Dictionary + Math.)
-    """
     return sum(nilai_dict.values()) / len(nilai_dict)
-
 
 def gradeMurid(rata2):
     if rata2 >= 90:
@@ -476,9 +467,6 @@ def seleksiLomba(kode_mapel, judul):
  
     if dataKosong():
         return
-
-    # Urutkan pakai function bersama; kirim kode mapel lewat parameter 'mapel'.
-    urutan = urutkanMurid(data_murid, mapel=kode_mapel)
 
     tabel = []
     for i in range(min(3, len(urutan))):     # ambil maksimal 3 teratas
